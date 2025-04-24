@@ -73,6 +73,9 @@ public class EstadisticasJugador {
     @JoinColumn(name ="id_partido")
     private Partido partido;
 
+    @ManyToOne
+    @JoinColumn(name = "id_jugador")
+    private Jugador jugador;
 
 
 }

@@ -44,7 +44,7 @@ public class Entrenador {
 
     @ManyToOne
     @JoinColumn(name = "id_equipo")
-    Equipo equipo;
+    private Equipo equipo;
 
 
 }

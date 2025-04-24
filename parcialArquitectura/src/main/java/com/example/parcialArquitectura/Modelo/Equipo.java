@@ -1,12 +1,11 @@
 package com.example.parcialArquitectura.Modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 
 public class Equipo {
@@ -48,4 +47,10 @@ public class Equipo {
     public void setFundacion(LocalDate fundacion) {
         this.fundacion = fundacion;
     }
+
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+    private List<Jugador> jugadores;
+
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+    private List<Entrenador> entrenadores;
 }

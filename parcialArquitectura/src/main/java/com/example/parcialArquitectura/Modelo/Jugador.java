@@ -3,6 +3,8 @@ package com.example.parcialArquitectura.Modelo;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
+
 @Entity
 public class Jugador {
     @Id
@@ -73,5 +75,8 @@ public class Jugador {
     @ManyToOne
     @JoinColumn(name = "id_equipo")
     private Equipo equipo;
+
+    @OneToMany(mappedBy = "jugador", cascade = CascadeType.ALL)
+    private List<EstadisticasJugador> estadisticas;
 
 }
